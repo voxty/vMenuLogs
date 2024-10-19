@@ -3,7 +3,7 @@
 
 vMenu Logs for FiveM.
 
-Inspiration for this script can be found [here](https://github.com/BreezyTheDev/B-vMenuLogs/tree/main) added more to the script, made the script actually **WORK**.
+Original script can be found [here](https://github.com/BreezyTheDev/B-vMenuLogs/tree/main) added more to the script, made the script actually **WORK**.
 
 Requirements;
 
