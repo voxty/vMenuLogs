@@ -5,6 +5,9 @@ local function SendToWebhook(webhookUrl, embed)
     PerformHttpRequest(webhookUrl, function(statusCode, response, headers) end, 'POST', jsonData, {['Content-Type'] = 'application/json'})
 end
 
+local currentDate = os.date("%Y-%m-%d")
+local currentTime = os.date("%H:%M:%S")
+
 RegisterNetEvent('vMenu:GetPlayerIdentifiers', function(TargetPlayer)
     local sourceID = source
     local sourceName = GetPlayerName(sourceID)
@@ -21,7 +24,7 @@ RegisterNetEvent('vMenu:GetPlayerIdentifiers', function(TargetPlayer)
             ["url"] = Config.serverLogo
         },
         ["footer"] = {
-            ["text"] = ""..Config.webhookFooter..""..os.date("%x %X %p"),
+                ["text"] = ""..Config.webhookFooter.." "..currentDate.." "..currentTime.."",
             ["icon_url"] = Config.serverLogo
         }
     }
@@ -41,7 +44,7 @@ RegisterNetEvent('vMenu:RequestPlayerList', function()
             ["url"] = Config.serverLogo
         },
         ["footer"] = {
-            ["text"] = ""..Config.webhookFooter..""..os.date("%x %X %p"),
+                ["text"] = ""..Config.webhookFooter.." "..currentDate.." "..currentTime.."",
             ["icon_url"] = Config.serverLogo
         }
     }
@@ -64,7 +67,7 @@ RegisterNetEvent('vMenu:GetPlayerCoords', function(playerId)
             ["url"] = Config.serverLogo
         },
         ["footer"] = {
-            ["text"] = ""..Config.webhookFooter..""..os.date("%x %X %p"),
+                ["text"] = ""..Config.webhookFooter.." "..currentDate.." "..currentTime.."",
             ["icon_url"] = Config.serverLogo
         }
     }
@@ -86,7 +89,7 @@ RegisterNetEvent('vMenu:SaveTeleportLocation', function(locationJson)
             ["url"] = Config.serverLogo
         },
         ["footer"] = {
-            ["text"] = ""..Config.webhookFooter..""..os.date("%x %X %p"),
+                ["text"] = ""..Config.webhookFooter.." "..currentDate.." "..currentTime.."",
             ["icon_url"] = Config.serverLogo
         }
     }
@@ -110,7 +113,7 @@ RegisterNetEvent('vMenu:KickPlayer', function(target, kickReason)
             ["url"] = Config.serverLogo
         },
         ["footer"] = {
-            ["text"] = ""..Config.webhookFooter..""..os.date("%x %X %p"),
+                ["text"] = ""..Config.webhookFooter.." "..currentDate.." "..currentTime.."",
             ["icon_url"] = Config.serverLogo
         }
     }
@@ -134,7 +137,7 @@ RegisterNetEvent('vMenu:PermBanPlayer', function(targetPlayer, banReason)
             ["url"] = Config.serverLogo
         },
         ["footer"] = {
-            ["text"] = ""..Config.webhookFooter..""..os.date("%x %X %p"),
+                ["text"] = ""..Config.webhookFooter.." "..currentDate.." "..currentTime.."",
             ["icon_url"] = Config.serverLogo
         }
     }
@@ -159,7 +162,7 @@ RegisterNetEvent('vMenu:TempBanPlayer', function(targetPlayer, banReason, banDur
             ["url"] = Config.serverLogo
         },
         ["footer"] = {
-            ["text"] = ""..Config.webhookFooter..""..os.date("%x %X %p"),
+                ["text"] = ""..Config.webhookFooter.." "..currentDate.." "..currentTime.."",
             ["icon_url"] = Config.serverLogo
         }
     }
@@ -179,7 +182,7 @@ RegisterNetEvent('vMenu:RequestPlayerUnban', function()
             ["url"] = Config.serverLogo
         },
         ["footer"] = {
-            ["text"] = ""..Config.webhookFooter..""..os.date("%x %X %p"),
+                ["text"] = ""..Config.webhookFooter.." "..currentDate.." "..currentTime.."",
             ["icon_url"] = Config.serverLogo
         }
     }
@@ -199,7 +202,7 @@ RegisterNetEvent('vMenu:RequestBanList', function()
             ["url"] = Config.serverLogo
         },
         ["footer"] = {
-            ["text"] = ""..Config.webhookFooter..""..os.date("%x %X %p"),
+                ["text"] = ""..Config.webhookFooter.." "..currentDate.." "..currentTime.."",
             ["icon_url"] = Config.serverLogo
         }
     }
@@ -238,7 +241,7 @@ RegisterNetEvent('vMenu:SendMessageToPlayer', function(target, message)
             ["url"] = Config.serverLogo
         },
         ["footer"] = {
-            ["text"] = ""..Config.webhookFooter..""..os.date("%x %X %p"),
+                ["text"] = ""..Config.webhookFooter.." "..currentDate.." "..currentTime.."",
             ["icon_url"] = Config.serverLogo
         }
     }
@@ -260,7 +263,7 @@ RegisterNetEvent('vMenu:ClearArea', function(x, y, z)
             ["url"] = Config.serverLogo
         },
         ["footer"] = {
-            ["text"] = ""..Config.webhookFooter..""..os.date("%x %X %p"),
+                ["text"] = ""..Config.webhookFooter.." "..currentDate.." "..currentTime.."",
             ["icon_url"] = Config.serverLogo
         }
     }
@@ -282,7 +285,7 @@ RegisterNetEvent('vMenu:KillPlayer', function(target)
             ["url"] = Config.serverLogo
         },
         ["footer"] = {
-            ["text"] = ""..Config.webhookFooter..""..os.date("%x %X %p"),
+                ["text"] = ""..Config.webhookFooter.." "..currentDate.." "..currentTime.."",
             ["icon_url"] = Config.serverLogo
         }
     }
@@ -304,7 +307,7 @@ RegisterNetEvent('vMenu:SummonPlayer', function(target)
             ["url"] = Config.serverLogo
         },
         ["footer"] = {
-            ["text"] = ""..Config.webhookFooter..""..os.date("%x %X %p"),
+                ["text"] = ""..Config.webhookFooter.." "..currentDate.." "..currentTime.."",
             ["icon_url"] = Config.serverLogo
         }
     }
@@ -325,28 +328,7 @@ RegisterNetEvent('vMenu:UpdateServerWeather', function(result)
             ["url"] = Config.serverLogo
         },
         ["footer"] = {
-            ["text"] = ""..Config.webhookFooter..""..os.date("%x %X %p"),
-            ["icon_url"] = Config.serverLogo
-        }
-    }
-    SendToWebhook(webhookUrl, embed)
-end)
-
-RegisterNetEvent('vMenu:UpdateServerTime', function(result)
-    local sourceID = source
-    local sourceName = GetPlayerName(sourceID)
-    local embed = {
-        ["title"] = "vMenu Time Changed",
-        ["color"] = Config.webhookColor,
-        ["fields"] = {
-            { ["name"] = ""..sourceName.." | "..sourceID.."", ["value"] = "Has changed the time." },
-            { ["name"] = "The new time is", ["value"] = "**"..result..":00**" },
-        },
-        ["thumbnail"] = {
-            ["url"] = Config.serverLogo
-        },
-        ["footer"] = {
-            ["text"] = ""..Config.webhookFooter..""..os.date("%x %X %p"),
+                ["text"] = ""..Config.webhookFooter.." "..currentDate.." "..currentTime.."",
             ["icon_url"] = Config.serverLogo
         }
     }
