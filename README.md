@@ -11,4 +11,4 @@ Requirements;
 - Discord Server
 - Discord Channel
 
-This was made for the amazing server "State of Kentucky Roleplay" or "Commonwealth of Virigna Roleplay" but you know their development command is... enjoy.
+This is outdated working on uploading a new version!
